@@ -2,8 +2,8 @@ import { configureStore } from '@reduxjs/toolkit'
 
 import api from '../services/api'
 
-import cartReducer from './reducers/cart'
-import checkoutReducer from './reducers/checkout'
+import cartReducer from './reducers/Cart'
+import checkoutReducer from './reducers/Checkout'
 
 export const store = configureStore({
   reducer: {

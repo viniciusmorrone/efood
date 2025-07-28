@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 
-import { open } from '../../store/reducers/checkout'
-import { close, remove } from '../../store/reducers/cart'
+import { open } from '../../store/reducers/Checkout'
+import { close, remove } from '../../store/reducers/Cart'
 
 import Button from '../Button'
 

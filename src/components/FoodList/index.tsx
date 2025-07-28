@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
-import { add, open } from '../../store/reducers/cart'
+import { add, open } from '../../store/reducers/Cart'
 import { Container } from '../../styles'
 
 import ComidaItem from '../Food'
