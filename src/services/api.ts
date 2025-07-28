@@ -1,51 +1,22 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-type Products = {
-  id: number
-  price: number
-}
-
-type PurchasePayload = {
-  products: Products[]
-  delivery: {
-    receiver: string
-    address: {
-      description: string
-      city: string
-      zipCode: string
-      number: number
-      complement: string
-    }
-  }
-  payment: {
-    card: {
-      name: string
-      number: string
-      code: number
-      expires: {
-        month: number
-        year: number
-      }
-    }
-  }
-}
-
-type PurchaseResponse = {
-  orderId: string
-}
+import Cardapio from '../models/Cardapio'
+import Checkout from '../models/Checkout'
 
 const api = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://fake-api-tau.vercel.app/api/efood/'
+    baseUrl: 'https://fake-api-tau.vercel.app/api/efood'
   }),
   endpoints: (builder) => ({
-    getRestaurantes: builder.query<RestauranteDetalhado[], void>({
-      query: () => 'restaurantes'
+    getCardapio: builder.query<Cardapio[], void>({
+      query: () => `/restaurantes`
     }),
-    getPerfil: builder.query<RestauranteDetalhado, string>({
-      query: (id) => `restaurantes/${id}`
+
+    getRestaurante: builder.query<Cardapio, string>({
+      query: (id) => `/restaurantes/${id}`
     }),
-    purchase: builder.mutation<PurchaseResponse, PurchasePayload>({
+
+    purchase: builder.mutation<any, Checkout>({
       query: (body) => ({
         url: 'checkout',
         method: 'POST',
@@ -56,8 +27,8 @@ const api = createApi({
 })
 
 export const {
-  useGetRestaurantesQuery,
-  useGetPerfilQuery,
+  useGetCardapioQuery,
+  useGetRestauranteQuery,
   usePurchaseMutation
 } = api
 
