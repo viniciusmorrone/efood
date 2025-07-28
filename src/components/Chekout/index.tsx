@@ -7,7 +7,7 @@ import InputMask from 'react-input-mask'
 import { usePurchaseMutation } from '../../services/api'
 import { RootReducer } from '../../store'
 import { close } from '../../store/reducers/checkout'
-import { open } from '../../store/reducers/Cart'
+import { open } from '../../store/reducers/cart'
 
 import Button from '../Button'
 
@@ -15,7 +15,7 @@ import { formataPreco, getPrecoTotal } from '../../utils'
 
 import { CartContainer, Overlay } from '../Cart/styles'
 import * as S from './styles'
-import { clear } from '../../store/reducers/Cart'
+import { clear } from '../../store/reducers/cart'
 
 const Checkout = () => {
   const [purchase, { data, isLoading, isSuccess }] = usePurchaseMutation()
