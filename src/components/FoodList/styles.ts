@@ -1,15 +1,23 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
 
-export const List = styled.ul`
+import { ButtonContainer } from '../Button/styles'
+import { breakPoints, cores } from '../../styles'
+
+export const ListaDeComida = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 32px;
   gap: 32px;
-  padding-top: 56px;
-  color: ${cores.bege};
-  padding-bottom: 120px;
+
+  @media (max-width: ${breakPoints.desktop}) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: ${breakPoints.tablet}) {
+    grid-template-columns: 1fr;
+    gap: 0px;
+  }
 `
+
 export const Modal = styled.div`
   position: fixed;
   top: 0;
@@ -19,6 +27,7 @@ export const Modal = styled.div`
   display: none;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 
   &.visivel {
     display: flex;
@@ -28,19 +37,51 @@ export const Modal = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.73);
+  }
+
+  ${ButtonContainer} {
+    max-width: 218px;
+    width: 100%;
+    height: 24px;
+    padding: 4px 6px;
   }
 `
 
 export const ModalContent = styled.div`
-  background-color: ${cores.rosa};
+  background-color: ${cores.corPrincipal};
   padding: 32px;
   max-width: 1024px;
   position: relative;
   display: flex;
   z-index: 1;
+
+  @media (max-width: ${breakPoints.tablet}) {
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: 80%;
+
+    img {
+      margin: 0;
+    }
+
+    div {
+      margin-top: 10px;
+      text-align: center;
+
+      p {
+        text-align: justify;
+      }
+    }
+  }
+
+  @media (max-width: ${breakPoints.tablet}) {
+    align-items: center;
+  }
 `
 
 export const BotaoFechar = styled.img`
@@ -48,43 +89,39 @@ export const BotaoFechar = styled.img`
   top: 0;
   position: absolute;
   padding: 8px;
+  cursor: pointer;
 `
 
 export const ImageModal = styled.img`
-  width: 280px;
+  max-width: 280px;
+  width: 100%;
   height: 280px;
-  object-fit: cover;
   margin-right: 24px;
+  object-fit: cover;
+  object-position: center;
+
+  @media (max-width: ${breakPoints.tablet}) {
+    max-width: 230px;
+    height: 230px;
+  }
 `
 
-export const Title = styled.h2`
+export const NomeComida = styled.h2`
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 16px;
-  color: ${cores.branco};
+  color: #fff;
 `
 
-export const Description = styled.p`
+export const Descricao = styled.p`
   font-size: 14px;
   font-weight: 400;
   line-height: 22px;
-  color: ${cores.branco};
+  color: #fff;
 
   span {
     display: block;
     margin-top: 32px;
     margin-bottom: 16px;
   }
-`
-
-export const ModalButton = styled.button`
-  background-color: ${cores.bege};
-  color: ${cores.rosa};
-  font-size: 14px;
-  font-weight: bold;
-  border: none;
-  padding: 4px 8px;
-  width: 218px;
-  height: 24px;
-  display: flex;
 `

@@ -1,54 +1,44 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
 
-export const ContainerFood = styled.div`
+import { cores } from '../../styles'
+import { ButtonContainer } from '../Button/styles'
+
+export const Card = styled.main`
   max-width: 320px;
   width: 100%;
-  background-color: ${cores.rosa};
-  cursor: pointer;
-  height: 338px;
+  margin-top: 56px;
+  padding: 8px;
+  background-color: ${cores.corPrincipal};
+  color: #fff;
 
-  div {
-    padding: 8px;
+  ${ButtonContainer} {
+    width: 100%;
   }
 `
 
-export const ImagemFood = styled.img`
-  display: block;
-  margin: 0 auto;
+export const ComidaFoto = styled.img`
   width: 100%;
   height: 167px;
   object-fit: cover;
-  padding: 8px;
 `
 
-export const TitleFood = styled.h4`
+export const ComidaNome = styled.h3`
   font-size: 16px;
   font-weight: 900;
-  padding-bottom: 8px;
+  margin-top: 8px;
 `
 
-export const DescriptionFood = styled.p`
+export const ComidaDescricao = styled.p`
+  margin-top: 8px;
+  max-height: 66px;
+  margin-bottom: 8px;
   font-size: 14px;
   font-weight: 400;
   line-height: 22px;
-  padding-bottom: 8px;
-`
-export const StyledButton = styled.button`
-  width: 304px;
-  height: 24px;
-  background-color: ${cores.branco};
-  color: ${cores.rosa};
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 100%;
-  letter-spacing: 0;
-  text-align: center;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: none;
+  text-align: start;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 `
