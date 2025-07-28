@@ -6,7 +6,7 @@ import InputMask from 'react-input-mask'
 
 import { usePurchaseMutation } from '../../services/api'
 import { RootReducer } from '../../store'
-import { close } from '../../store/reducers/Checkout'
+import { close } from '../../store/reducers/checkout'
 import { open } from '../../store/reducers/Cart'
 
 import Button from '../Button'

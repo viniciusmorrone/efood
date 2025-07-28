@@ -3,7 +3,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import api from '../services/api'
 
 import cartReducer from './reducers/Cart'
-import checkoutReducer from './reducers/Checkout'
+import checkoutReducer from './reducers/checkout'
 
 export const store = configureStore({
   reducer: {
